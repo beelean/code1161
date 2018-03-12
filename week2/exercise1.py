@@ -14,8 +14,9 @@ print("hello! Let's get started")  # it printed "hello! Let's get started"
 # i think this is a string of the tuple that some_words represent to.
 some_words = ['what', 'does', 'this', 'line', 'do', '?']
 
+# i think this will print "'what', 'does', 'this', 'line', 'do', '?'" by calling the print function
 for word in some_words:
-    print(word)
+    print(word) 
 
 for x in some_words:
     print(x)
