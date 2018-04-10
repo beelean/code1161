@@ -136,7 +136,8 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
+    
+    
 
 
 if __name__ == "__main__":
