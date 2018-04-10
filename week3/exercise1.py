@@ -12,15 +12,31 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    pass
-
+    list = []
+    count = start
+    while count < stop:
+        list.append(count)
+        count = count + step
+    return list
 
 def lone_ranger(start, stop, step):
     """Duplicate the functionality of range.
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    pass
+
+
+    list = []
+    count = start
+    while count < stop:
+        list.append(count)
+        count = count + step
+    return list
+
+
+  
+
+
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +45,13 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    pass
+
+    list = []
+    count = start
+    while count < stop:
+        list.append(count)
+        count = count + 2
+    return list
 
 
 def stubborn_asker(low, high):
@@ -38,7 +60,21 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
+ 
+    i = input ('Enter a number: ')
+
+    while True:
+        if int(i) < high and int(i) > low:
+           return i
+        else:
+            i = input ('Enter again:')
+            continue
+
+       
+    
+
+
+
 
 
 def not_number_rejector(message):
@@ -48,7 +84,14 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    i = input ('Enter a number: ')
+
+    while True: 
+            return i
+        else:
+            i = input ('Try agian')
+            continue 
+
 
 
 def super_asker(low, high):
@@ -57,8 +100,15 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
-
+    
+    i = input ('Give me a number between 'low' and 'high')
+    
+    while True:
+        if low < int(i) < high:
+            return i
+        else:
+            print ('input is out of range')
+            i = input ("Try Again")
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

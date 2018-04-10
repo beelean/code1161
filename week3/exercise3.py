@@ -29,6 +29,21 @@ def advancedGuessingGame():
     purpose if you can!
     """
     return "You got it!"
+    
+    from random import randint
+    RandomNumber = randint(10, 20)   
+    print("Can you guess a number between 10 and 20?")
+
+    Guess = 16
+
+    while Guess != 16:
+      Guess = int(input('Have a guess'))
+      if Guess > 16:
+        print('Too high!')
+      elif Guess < 16:
+        print('Too low!')
+
+    return 'You got it!'
 
 
 if __name__ == "__main__":

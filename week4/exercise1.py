@@ -37,10 +37,13 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    return {"lastName":       data["results"][0]["name"]["last"],
+            "password":       data["results"][0]["login"]["password"]
+            "postcodePlusID": data["results"][0]["location"]["postcode"] + int(data["result"][0]["id"]["value"])
             }
+
+
+    
 
 
 
@@ -79,8 +82,19 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    
+    Pyraimd = []
+    
+    URL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
 
+
+    for i in range (3, 20, 2):
+        r = requests.get(URL + str(i))
+        word = r.text
+        print(word)
+        paramid.append(word)
+
+    return pyramid
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -103,10 +117,10 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    return {"state":           obs["stage"],
+            "latitude":        obs["current_observation"]["latitude"],
+            "longitude":       obs["current_observation"]["longitude"],
+            "local_tz_offset": obs["local_tz_offset"]}
 
 
 def diarist():

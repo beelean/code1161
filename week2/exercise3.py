@@ -31,7 +31,10 @@ def fix_it(moves=True, should_move=True):
     else:
         return "WD-40"
 
-    pass
+    
+
+
+
 
 
 def loops_1a():
@@ -41,9 +44,16 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
+    my_return_list = []
 
+    for x in range(10):
+
+        my_return_list.append('*')
+
+    return my_return_list
     
-    pass
+
+
 
 
 
@@ -55,7 +65,16 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+
+    x = []
+
+    for hashtag in range(number_of_items):
+
+        x.append(symbol)
+
+    return x
+
+
 
 
 def loops_2():
@@ -76,7 +95,17 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    list1 = []
+
+    for z in range(10):
+        list2 = []
+        for z in range(10):
+            list2.append('*')
+        list1.append(list2)
+
+    return list1
+
+
 
 
 def loops_3():
@@ -100,7 +129,16 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+     
+    columns = []
+
+    for x in range(10):
+        rows = []
+        for z in range(10):
+            rows.append(str(x))
+        columns.append(rows)
+
+    return columns
 
 
 def loops_4():
@@ -120,7 +158,17 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+        
+    columns = []
+
+    for x in range(10):
+        rows = []
+        for z in range(10):
+            rows.append(str(z))
+        columns.append(rows)
+
+    return columns
+
 
 
 def loops_5():
@@ -145,7 +193,15 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    columns = []
+
+    for x in range(10):
+        rows = []
+        for z in range(5):
+            rows.append("('i' + 'str(x)' + ' ', 'j' + 'str(z) + ' ')")
+        columns.append(rows)
+
+    return columns  
 
 
 def loops_6():
@@ -168,7 +224,16 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+
+    columns = []
+
+    for x in range(10):
+        rows = []
+        for z in range(columns+1):
+            rows.append(str(z))
+        columns.append(rows)
+    return columns
+
 
 
 def loops_7():
