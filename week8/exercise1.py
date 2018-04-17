@@ -53,7 +53,20 @@ def fizz_buzz():
     """
     fizzBuzzList = []
     # your code here
-    for i in 
+    for i in range(100):
+        if (i + 1) % 3 == 0 and (i + 1) % 5 == 0:
+            fizzBuzzList.append("FizzBuzz")
+
+        elif (i + 1) % 3 == 0:
+            fizzBuzzList.append("FizzBuzz")
+        
+        elif (i + 1) % 5 == 0:
+            fizzBuzzList.append("FizzBuzz")
+        
+        else:
+            fizzfizzBuzzList.append(i +1)
+
+        return fizzBuzzList
 
 
     return fizzBuzzList
@@ -131,6 +144,28 @@ def make_filler_text_dictionary():
     """
     
     import requests
+    
+
+    random.radint
+
+ Pyraimd = []
+    
+    URL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
+     
+    start = 3
+
+    for i in range(9):
+        r = requests.get(URL + str(i))
+        Pyraimd.append(r[:start])
+        start += 2
+    Pyraimd.append(r[:start])
+    
+    start = 18
+    for i in range(9):
+        r = requests.get(URL + str(i))
+        Pyraimd.append[r(:start)]
+        start -= 2
+
     return
 
 
