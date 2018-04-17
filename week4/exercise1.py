@@ -43,6 +43,19 @@ def get_some_details():
             }
 
 
+"""
+ json_data = open(LOCAL + "/lazyduck.json").read()
+
+    data = json.loads(json_data)
+    result = data["results"][0]
+    return {"lastName":       result["name"]["last"],
+            "password":       result["login"]["password"],
+            "postcodePlusID": result["location"]["postcode"] +
+            int(result["id"]["value"])
+            }
+
+"""
+
     
 
 
@@ -86,15 +99,41 @@ def wordy_pyramid():
     Pyraimd = []
     
     URL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
+     
+    start = 3
 
-
-    for i in range (3, 20, 2):
+    for i in range(9):
         r = requests.get(URL + str(i))
-        word = r.text
-        print(word)
-        paramid.append(word)
+        Pyraimd.append(r[:start])
+        start += 2
+    Pyraimd.append(r[:start])
+    
+    start = 18
+    for i in range(9):
+        r = requests.get(URL + str(i))
+        Pyraimd.append[r(:start)]
+        start -= 2
 
-    return pyramid
+
+    return Pyramid
+
+
+"""
+
+    pyramid1 = []
+    pyramid2 = []
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+    for length in range(3, 21):
+        if length % 2 == 1:
+            pyramid1.append(requests.get(url.format(length, length)).json()[0]['word'])
+        else:
+            pyramid2 = [requests.get(url.format(length, length)).json()[0]['word']] + pyramid2
+
+    return pyramid1 + pyramid2
+
+"""
+
+
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -117,11 +156,14 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           obs["stage"],
+    dict1 = {"state":           obs["stage"],
             "latitude":        obs["current_observation"]["latitude"],
             "longitude":       obs["current_observation"]["longitude"],
             "local_tz_offset": obs["local_tz_offset"]}
 
+    print (str(dict1))
+
+    return dict1
 
 def diarist():
     """Read gcode and find facts about it.

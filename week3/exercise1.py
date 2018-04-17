@@ -25,16 +25,8 @@ def lone_ranger(start, stop, step):
     Look up the docs for range() and wrap it in a 1:1 way
     """
 
-
-    list = []
-    count = start
-    while count < stop:
-        list.append(count)
-        count = count + step
-    return list
-
-
   
+    return list(range(start, stop, step))
 
 
 
@@ -53,6 +45,7 @@ def two_step_ranger(start, stop):
         count = count + 2
     return list
 
+#  return lone_ranger(start, stop, 2)
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -61,17 +54,28 @@ def stubborn_asker(low, high):
     until you get a number that you think is OK
     """
  
-    i = input ('Enter a number: ')
+   
 
     while True:
+        i = input ('Enter a number: ')
         if int(i) < high and int(i) > low:
-           return i
+           continue
         else:
-            i = input ('Enter again:')
-            continue
-
+            break
+  
        
-    
+    """
+
+    answered = False
+    while answered is False:
+        num = input("Enter a number between {} and {}: ".format(low, high))
+        if int(num) > low and int(num) < high:
+            answered = True
+            break
+        print(str(answered))
+    return num
+
+    """
 
 
 
@@ -88,10 +92,23 @@ def not_number_rejector(message):
 
     while True: 
             return i
-        else:
-            i = input ('Try agian')
-            continue 
-
+    else:
+        i = input ('Try agian')
+        
+"""
+    answered = False
+    while not answered:
+        answered = True
+        inputVar = input(message)
+        try:
+            inputVar = int(inputVar)
+        except Exception:
+            try:
+                inputVar = float(inputVar)
+            except Exception:
+                answered = False
+    return inputVar
+"""
 
 
 def super_asker(low, high):
@@ -105,10 +122,23 @@ def super_asker(low, high):
     
     while True:
         if low < int(i) < high:
-            return i
+           break 
         else:
             print ('input is out of range')
             i = input ("Try Again")
+
+
+"""
+   answered = False
+    while answered is False:
+        num = not_number_rejector("Enter a number between {} and {}: ".format(low, high))
+        if int(num) > low and int(num) < high:
+            answered = True
+            break
+        print(str(answered))
+    return num
+"""
+
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

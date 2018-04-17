@@ -27,8 +27,28 @@ def binary_search(low, high, actual_number):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
+     
+    d = {"guess": [], "tries": 0}
+    current = int(high/2)
+    current_high = high
+    current_low = low
 
-    return {"guess": guess, "tries": tries}
+    while current != actual_number:
+      if actual_number < current:
+          current_high = current
+          current = int((current_high + current_low)/2)
+      elif actual_number > current:
+          current_low = current 
+          current = int((current_high + current_low)/2)
+      
+          d["guess"].append(current)
+          d["tries"] += 1
+
+    return d
+
+
+
+
 
 
 if __name__ == "__main__":

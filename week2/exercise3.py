@@ -9,6 +9,7 @@ def is_odd(a_number):
     """
     return (a_number % 2 !=0)
 
+ #  return a _ number % 2 == 1 
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -74,7 +75,7 @@ def loops_1c(number_of_items=5, symbol="#"):
 
     return x
 
-
+# return [symbol] * number_of_items
 
 
 def loops_2():
@@ -105,6 +106,8 @@ def loops_2():
 
     return list1
 
+
+ #   return [['*'] * 10] * 10
 
 
 
@@ -140,6 +143,8 @@ def loops_3():
 
     return columns
 
+# return [[str(x)]* 10 for x in range(10)]
+
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -169,7 +174,7 @@ def loops_4():
 
     return columns
 
-
+ #  return [[str(x) for x in range(10)]] * 10
 
 def loops_5():
     """Make the coordinates of the block.
@@ -198,11 +203,26 @@ def loops_5():
     for x in range(10):
         rows = []
         for z in range(5):
-            rows.append("('i' + 'str(x)' + ' ', 'j' + 'str(z) + ' ')")
+            rows.append(('i' + str(x), 'j' + str(z)))
         columns.append(rows)
 
     return columns  
 
+
+"""
+    # long answer
+    return_list = []
+    for x in range(10):
+        mini_list = []
+        for y in range(5):
+            mini_list.append("(i{}, j{})".format(x, y))
+        return_list.append(mini_list)
+    # return return_list # -- uncomment this and check the value of return list 
+    
+    # short ans
+    return [[f"(i{x}, j{y})" for y in range(5)] for x in range(10)]
+
+"""
 
 def loops_6():
     """Make a wedge of numbers.
@@ -226,16 +246,31 @@ def loops_6():
     """
 
     columns = []
-
+    
     for x in range(10):
         rows = []
-        for z in range(columns+1):
+        for z in range(x+1):
             rows.append(str(z))
         columns.append(rows)
     return columns
 
+"""
+  columns = []
+  start = 1
+  
+  for x in range(10):
+      rows = []
+      for z in range(x+1):
+          rows.append(str(z))
+      start += 1
+      columns.append(rows)
+   return columns
+    
 
 
+
+"""
+   
 def loops_7():
     """Make a pyramid.
 
@@ -257,7 +292,37 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+ 
+    num = 1 
+    total = 9 
+
+    result = []
+
+    for i in range(5):
+        li = []
+        space = int((total-num)/2)
+        for j in range(space):
+            li.append(' ')
+        for j in range(num):
+            li.append('*')
+        for j in range(space):
+            li.append('')
+        num += 2 
+        result.append(li)
+
+    return result
+        
+"""
+    middle_index = 4
+    return_list = []
+    for x in range(5):
+        element_list = [' '] * 9
+        for i in range(middle_index-x, middle_index+x+1):
+            element_list[i] = '*'
+        return_list.append(element_list)
+    return return_list
+
+"""
 
 
 def lp(some_kind_of_list, exercise_name):
